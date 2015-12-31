@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.template import loader
 from .models import Movie
 # Create your views here.
@@ -12,10 +12,13 @@ def index(request):
     }
     return HttpResponse(template.render(context, request))
 
-def detail(request, movie_id):
-    response = "You're looking at movie %s."
-    return HttpResponse(response % movie_id)
-
 def review(request, movie_id):
-    response = "You're looking at the review of movie %s."
-    return HttpResponse(response % movie_id)
+    try:
+        movie = Movie.objects.get(pk=movie_id)
+    except Movie.DoesNotExist:
+        raise Http404("This movie does not exist")
+    return render(request, 'movie/review.html', {'movie': movie})
+
+# def review(request, movie_id):
+#    response = "You're looking at the review of movie %s."
+#    return HttpResponse(response % movie_id)

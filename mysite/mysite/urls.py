@@ -18,6 +18,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^polls/', include('polls.urls', namespace="polls")),
-    url(r'^movies/', include('review.urls', namespace="review")),
     url(r'^admin/', include(admin.site.urls)),
 ]

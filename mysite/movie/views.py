@@ -9,7 +9,7 @@ from django.views import generic
 class IndexView(generic.ListView):
     template_name = 'movie/index.html'
     context_object_name = 'latest_movie_list'
-    queryset = Movie.objects.order_by('-rating')[:5]
+    queryset = Movie.objects.all()
 
     # template = loader.get_template('movie/index.html')
     # context = {

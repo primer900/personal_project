@@ -1,0 +1,23 @@
+h1.detail_title {
+    text-align: center;
+    color: blue;
+}
+
+div#sidebar {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    width: 200px;
+    background-color: rgba(219, 222, 219, 0.82);
+}
+
+p.author_and_publish_info {
+    text-align: center;
+    font-size: 100%;
+}
+
+div#body {
+    font-size: 120%;
+    position: absolute;
+    left: 30%
+}

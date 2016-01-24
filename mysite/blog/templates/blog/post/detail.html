@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+
+{% block title %}{{post.title}}{% endblock %}}
+
+{% block content %}
+    <h1>
+        <a href="http://127.0.0.1:8000/blog/">Home Page </a>
+    </h1>
+    <h1 class="detail_title">{{post.title}}</h1>
+    <p class="author_and_publish_info">
+        Published {{post.publish}} by {{post.author}}
+    </p>
+    <div id="body">
+    {{post.body | linebreaks}}
+    </div>
+{% endblock %}

@@ -18,3 +18,10 @@ def post_detail(request, year, month, day, post):
     return render(request,
                   'blog/post/detail.html',
                   {'post': post})
+
+
+def most_recent_list(request):
+    posts = Post.published.order_by('publish')[:10]
+    return render(request,
+                  'blog/post/recent.html',
+                  {'posts': posts})

@@ -31,6 +31,9 @@ class Post(models.Model):
     status = models.CharField(max_length=10, choices=STATUS_CHOICES,
                               default='draft')
 
+    def first_sentence(self):
+        return self.body.partition(".")[0] + self.body.partition(".")[1]
+
     def get_absolute_url(self):
         return reverse('blog:post_detail',
                        args=[
@@ -44,3 +47,6 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+# {{ post.body|truncatewords:30|linebreaks }}

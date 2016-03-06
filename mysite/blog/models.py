@@ -4,7 +4,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
-
+from collections import Iterable
 # Create your models here.
 
 
@@ -33,7 +33,17 @@ class Post(models.Model):
                               default='draft')
 
     def first_sentence(self):
-        return self.body.partition(".")[0] + self.body.partition(".")[1]
+        punctuation = []
+        if '.' in self.body:
+            punctuation.append(self.body.index("."))
+        if '!' in self.body:
+            punctuation.append(self.body.index("!"))
+        if '?' in self.body:
+            punctuation.append(self.body.index("?"))
+
+        minimum_punctuation = min(punctuation)
+        return self.body.partition(self.body[minimum_punctuation])[0] + \
+            self.body.partition(self.body[minimum_punctuation])[1]
 
     def get_absolute_url(self):
         return reverse('blog:post_detail',
@@ -48,6 +58,3 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-
-
-# {{ post.body|truncatewords:30|linebreaks }}

@@ -8,6 +8,11 @@ h1.list_title{
     color: black;
 }
 
+h2.rating{
+    text-align: center;
+    color: darkblue;
+}
+
 div#sidebar {
     position: absolute;
     top: 0%;

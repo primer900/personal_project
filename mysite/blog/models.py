@@ -4,7 +4,6 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
-from collections import Iterable
 # Create your models here.
 
 
@@ -31,6 +30,7 @@ class Post(models.Model):
     updated = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES,
                               default='draft')
+    rating = models.IntegerField(default=0)
 
     def first_sentence(self):
         punctuation = []

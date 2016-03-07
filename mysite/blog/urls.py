@@ -8,4 +8,5 @@ urlpatterns = [
         r'(?P<post>[-\w]+)/$',
         views.post_detail,
         name='post_detail'),
+    url(r'^reading-list', views.reading_list, name='reading_list')
 ]

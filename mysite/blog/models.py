@@ -58,3 +58,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class ReadingList(models.Model):
+    title = models.CharField(max_length=250)
+    author = models.CharField(max_length=250)
+    year_published = models.CharField(max_length=250)
+    genres = models.CharField(max_length=100)

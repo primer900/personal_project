@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+{% block title %}My Reading List{% endblock %}
+{% block content %}
+    <h1>
+        <a href="http://127.0.0.1:8000/blog/">Home Page </a>
+    </h1>
+{% for reading in readings %}
+<h2>{{ reading.title }}</h2>
+<p> {{ reading.author }}</p>
+
+{% endfor %}
+{% endblock %}

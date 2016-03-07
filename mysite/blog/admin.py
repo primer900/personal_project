@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Post
+from .models import ReadingList
 
 # Register your models here.
 
@@ -13,4 +14,12 @@ class PostAdmin(admin.ModelAdmin):
     date_hierarchy = 'publish'
     ordering = ['status', 'publish']
 
+
+class ReadingListAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'year_published', 'genres')
+    list_filter = ('title', 'genres')
+    search_fields = ('title',)
+    ordering = ['author', 'genres']
+
 admin.site.register(Post, PostAdmin)
+admin.site.register(ReadingList, ReadingListAdmin)

@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post
+from .models import ReadingList
 # Create your views here.
 
 
@@ -25,3 +26,11 @@ def most_recent_list(request):
     return render(request,
                   'blog/post/recent.html',
                   {'posts': posts})
+
+
+def reading_list(request):
+    readings = ReadingList.objects.all()
+    return render(request,
+                  'blog/reading_list/detail.html',
+                  {'readings': readings})
+

@@ -14,6 +14,10 @@
         Published {{post.publish}} by {{post.author}}
     </p>
     <h2 class="rating"> {{post.rating }} / 10 </h2>
+
+    {% load staticfiles %}
+    <img src="{% static 'images/5 stars.png' %}" alt="Rating">
+
     <div id="body">
     {{post.body | linebreaks}}
     </div>

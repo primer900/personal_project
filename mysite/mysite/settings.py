@@ -106,4 +106,5 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     ("css", "blog/templates/static/css"),
+    ("images", 'blog/templates/static/images'),
 ]

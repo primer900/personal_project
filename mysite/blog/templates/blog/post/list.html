@@ -16,5 +16,11 @@ Published {{ post.publish }} by {{ post.author }}
 </p>
 {{ post.first_sentence }}
 
+<div class="column">
+    <ul>
+        {{post.creator}}
+    </ul>
+</div>
+
 {% endfor %}
 {% endblock %}
